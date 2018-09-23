@@ -1,12 +1,17 @@
-# ArcFaceDemo
-Free SDK demo
+﻿# ArcFaceRecognizeDemo
+Free SDK demo 基于虹软ArcFaceDemo，可以在本机通过浏览器注册人脸或访问主页面下方地址注册人脸。
 
->工程如何使用？
+## 1.修改点
+ 1.去掉年龄、性别模块，仅保留人脸检测识别相关算法业务
+ 2.添加人脸方式由拍照改为网页上传姓名、图片数据，以此模拟Web后台添加注册人脸
+ 3.Application.decodeImage()函数加入图片最小宽高判定，小于最小尺寸会按比例缩放
+ 以增加寸照注册的成功率(自测时修改此处业务代码，可依据具体情况进行调整)
+
+## 2.工程如何使用？
  1. 下载代码:    
-    git clone https://github.com/asdfqwrasdf/ArcFaceDemo.git 或者直接下载压缩包
- 
+    https://github.com/joetang1989/ArcFaceRecognizeDemo.git 或者直接下载压缩包
  2. 前往[官网](http://www.arcsoft.com.cn/ai/arcface.html)申请appid和sdkkey。    
-    修改 ArcFaceDemo-master\src\main\java\com\arcsoft\sdk_demo\FaceDB.java 下面的对应的值:    
+    修改 ArcFaceRecognizeDemo\src\main\java\com\arcsoft\sdk_demo\FaceDB.java 下面的对应的值:    
    
     ```java    
     public static String appid = "xxxx"; 		
@@ -14,56 +19,33 @@ Free SDK demo
     public static String ft_key = "xxxx";
     public static String fr_key = "xxxx";
     ```
-3. 下载sdk包之后，解压各个包里libs中的文件到 ArcFaceDemo-master\libs 下，同名so直接覆盖。
+ 3. 下载sdk包之后，解压各个包里libs中的文件(*新*)到 ArcFaceRecognizeDemo\libs 下，同名so直接覆盖或直接使用工程现有so(*旧*)。
+ 4. Android Studio3.0(及以上)中直接打开或者导入Project,编译运行即可。    
 
-4. Android Studio3.0 中直接打开或者导入Project,编译运行即可。    
+## 3.demo如何使用?    
 
-> demo如何使用?    
+ 1. 点击"点我本机注册"，跳转至浏览器注册页面，上传信息即可或者使用其他设备连接到
+与人脸识别设备连接同一个热点，打开浏览器，地址栏输入:http://xxx:8688/register.html，
+上传信息。
+ *备注:xxx：人脸识别设备ip*   
+ 2. demo中人脸数据的保存方式?  
+　注册图片保存在外置存储根目录；特征及人名信息保存在数据库中。
 
- 1. 点击第一个按钮 打开图片或者拍一张带人脸的照片，确认后自动执行人脸，弹出注册框，注册第一个人脸。    
- 注册界面底部会展示已注册的信息列表，点击列表项，则可以执行删除操作。   
- 2. 点击第二个按钮 选择打开前置或者后置的镜头进行检测。
  
-> demo中人脸数据的保存方式?  
 
-　以注册时人名为关键索引，保存在face.txt中。  
-　创建的 name.data 则为实际的数据存储文件，保存了所有特征信息。  
-　同一个名字可以注册多个不同状态角度的人脸，在name.data 中连续保存，占用的数据文件长度为:  
-　N * {4字节(特征数据长度) + 22020字节(特征数据信息)}
-  
-> 最低支持的API-LEVEL?  
+---------------
+##4.FAQ
+1. 参见ArcFaceDemo readme.md(https://github.com/asdfqwrasdf/ArcFaceDemo/readme.md)   
+	
+2. 加入虹软微信支持群@汤小泽。,说明具体即可 
 
-　14-27    　
- 
+##5.鸣谢
+
+ - 虹软提供免费算法
+ - GreenDao、AndServer等第三方库作者
+
 ---------------
-> Issue Report
-1. before report    
-    please check the closed issues.    
-  
-2. issue format    
-    a.错误信息:log，input image，core stack, etc...    
-    b.设备信息:cpu, memory, device name, etc...    
-    c.系统版本:OS version, API leve,etc...    
-    d.具体操作流程:which step,how to recurrence,etc...    
-  
----------------
-> FAQ
-1. Gradle 错误提示 Error:Failed to find target with hash string 'android-24'.......    
- 一般Android Studio 窗口会有个链接(Install missing platform(s) and sync project)    
- 点击下载更新 android-24 即可解决（其他版本没测试过，建议不要随意更改）。    
-	
-2. 加载图片注册时Crash.    
- NV21格式限制高度不能为奇数，宽度可以随意，demo没有对这个做保护，请自行注意加载注册的图片尺寸。
-    
-3. 年龄和性别检测结果准确度不够.    
- Video的接口性能优先，Image的接口准确度优先。    
-    
-4. com.guo.android_extend:android-extend 找不到依赖.    
- 此第三方库[android_extend](https://github.com/gqjjqg/android-extend) 用来简化camera调用，提供简单的工具方便demo开发。 
- 一般android studio会自动从jcenter 下载对应的aar包，如果没有自动下载，请自行检查是否网络问题，或者删掉build等编译目录，重新运行gradle.
-    
-5. 还有其他问题.    
- 直接提交[issue](https://github.com/asdfqwrasdf/ArcFaceDemo/issues)     
- 我们会尽快解决    
-	
-# ArcFaceRecognizeDemo
+##6.申明
+最后，我只是简单搬运、整合了一下各个业务模块做了一个简单Demo；
+具体业务实现需根据自己业务需求来实现。
+

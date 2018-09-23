@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+android {
+    compileSdkVersion 24
+    buildToolsVersion '27.0.3'
+    defaultConfig {
+        applicationId "com.arcsoft.sdk_demo_"
+        minSdkVersion 21
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.1"
+        sourceSets.main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+//配置greendao
+greendao {
+    schemaVersion 1 //数据库版本号
+    //greendao生成代码设置，默认app/build/generated/source/greendao
+    daoPackage 'com.arcsoft.sdk_demo.database' //设置生成代码的包路径
+    targetGenDir 'src/main/java' //设置DaoMaster、DaoSession、Dao目录
+    //targetGenDirTest 'src/test/java'//设置生成单元测试目录
+    //generateTests ：设置自动生成单元测试用例
+}
+
+
+dependencies {
+    //添加GreenDao依赖库
+    //应用格式: packageName:artifactId:version
+    implementation 'org.greenrobot:greendao:3.2.0'
+    implementation 'org.greenrobot:greendao-generator:3.2.0'
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation files('libs/facedetection.jar')
+    implementation files('libs/facerecognition.jar')
+    implementation files('libs/facetracking.jar')
+    implementation 'com.guo.android_extend:android-extend:1.0.5'
+
+    implementation rootProject.ext.dependencies.andserver
+//    implementation rootProject.ext.dependencies.design
+//    implementation rootProject.ext.dependencies.appCompat
+    implementation rootProject.ext.dependencies.loading
+}

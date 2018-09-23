@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">人脸识别Demo</string>
+    <string name="register_addr">http://%s:8688/register.html</string>
+</resources>
+

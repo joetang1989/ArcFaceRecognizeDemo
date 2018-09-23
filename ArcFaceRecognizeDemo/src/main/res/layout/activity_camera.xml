@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+    <com.guo.android_extend.widget.CameraSurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="1dp"
+        android:layout_height="1dp"/>
+
+    <com.guo.android_extend.widget.CameraGLSurfaceView
+        android:id="@+id/glsurfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignRight="@+id/imageView"
+        android:layout_below="@+id/imageView"
+        android:layout_marginTop="10dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignRight="@+id/imageView"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="10dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"/>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/transparent"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:src="@android:drawable/ic_popup_sync" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:id="@+id/tv_register_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#484848"
+            android:textSize="24sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_red_light"
+            android:background="#484848"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="请确保两个终端在同一网段(使用同一个热点)"/>
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/white"
+            android:textColor="@android:color/black"
+            android:text="点我本机注册"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="--------[本程序由汤小泽。，友情提供]--------"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="6dp"
+        android:textSize="12sp"/>
+</RelativeLayout>

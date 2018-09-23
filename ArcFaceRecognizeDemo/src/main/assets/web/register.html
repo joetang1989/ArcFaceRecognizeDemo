@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+
+    <title>注    册</title>
+
+</head>
+<body class="sec_body">
+<div class="center_father">
+    <h1 class="center" style="margin:0 0;font-size:x-large;padding:0;">注    册</h1>
+</div>
+
+<!--上传文件 enctype必须为multipart/form-data-->
+<form id="form1" method="post" action="register" enctype="multipart/form-data">
+    <table align="center" cellpadding="0" cellspacing="0">
+        <!--姓名-->
+        <tr>
+            <td width="100" align="right">姓名:&nbsp;&nbsp;</td>
+            <td width="276"><input name="username" type="text" id="username" placeholder="请输入姓名 必填"/></td>
+        </tr>
+        <tr>
+            <td width="100">&nbsp;&nbsp;</td>
+            <td width="276">&nbsp;&nbsp;</td>
+        </tr>
+        <!--注册照片-->
+        <tr>
+            <td align="right">照片:&nbsp;&nbsp;</td>
+            <td><input name="registerimg" type="file" id="registerimg" placeholder="请选择自拍照片"/></td>
+        </tr>
+
+         <tr>
+            <td width="100">&nbsp;&nbsp;</td>
+            <td width="276">&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" name="submit" value="注    册"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
